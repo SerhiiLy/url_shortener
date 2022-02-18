@@ -1,1 +1,3 @@
 Django
+Jinja2
+MarkupSafe
