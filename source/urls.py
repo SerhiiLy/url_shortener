@@ -15,11 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from .yasg import urlpatterns as doc_urls
 
 # admin password123
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('shorter.urls')),
+    path('', include('shortener.urls')),
 ]

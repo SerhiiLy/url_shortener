@@ -6,14 +6,10 @@ from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
 from source.yasg import urlpatterns as doc_urls
 
-# router = routers.DefaultRouter()
-# router.register(r'users', views.UrlDataViewSet)
-
-
 urlpatterns = [
 
     # path("", views.url_short, name="home"),
-    path("<str:short_url>", views.url_redirect, name="redirect"),
+    path("<str:short_url>", views.UrlRedirect.as_view(), name="redirect"),
 
     path('shorten_url/', views.ShortenerApiView.as_view()),
     path('shortened_urls_count/', views.ShortenedLinkApiView.as_view()),
