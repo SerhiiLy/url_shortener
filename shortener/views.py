@@ -42,7 +42,8 @@ class ShortenerApiView(APIView):
         try:
             serializer = UrlDataSerializer(data=request.data)
 
-            if serializer.is_valid() and validate(url := serializer.data.get('url')):
+            if serializer.is_valid():
+                validate(url := serializer.data.get('url'))
                 hash_code = shortener_service.url_shortener(url)
 
                 return Response({'shortened_url': request.build_absolute_uri('/') + hash_code})
